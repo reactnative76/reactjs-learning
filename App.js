@@ -13,6 +13,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 import FeatherIcons from 'react-native-vector-icons/Feather'
 import EntypoIcons from 'react-native-vector-icons/Entypo'
 import OcticonsIcons from 'react-native-vector-icons/Octicons'
+import { PaperProvider } from 'react-native-paper';
 
 
 
@@ -21,6 +22,7 @@ const Drawer = createDrawerNavigator()
 
 export default function App() {
   return (
+    <PaperProvider>
     <NavigationContainer>
     <Drawer.Navigator drawerContent={props => <CustomDrawer {...props} />}   screenOptions={{
       headerShown: true
@@ -32,12 +34,12 @@ export default function App() {
       }} />
      
       
-      <Drawer.Screen name="InterviewQuestions" component={InterviewQuestionsScreen} options={{
+      <Drawer.Screen name="Interview Questions" component={InterviewQuestionsScreen} options={{
         drawerIcon: ({}) => (
           <FeatherIcons name="book" size={22}  />
         ),
       }} />
-      <Drawer.Screen name="BookMarks" component={BookMarksScreen} options={{
+      <Drawer.Screen name="Book Marks" component={BookMarksScreen} options={{
         drawerIcon: ()=>{
           return (
             <EntypoIcons name="bookmark" size={22}  />
@@ -59,6 +61,7 @@ export default function App() {
       }} />
     </Drawer.Navigator>
     </NavigationContainer>
+    </PaperProvider>
   );
 }
 
