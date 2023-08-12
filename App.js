@@ -1,5 +1,5 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+
+import { StyleSheet, Text, View, StatusBar } from 'react-native';
 import {NavigationContainer} from "@react-navigation/native"
 import {createDrawerNavigator} from "@react-navigation/drawer"
 import 'react-native-gesture-handler';
@@ -23,9 +23,17 @@ const Drawer = createDrawerNavigator()
 export default function App() {
   return (
     <PaperProvider>
+    <StatusBar
+    backgroundColor="#fff"
+    barStyle="dark-content" 
+   />
     <NavigationContainer>
     <Drawer.Navigator drawerContent={props => <CustomDrawer {...props} />}   screenOptions={{
-      headerShown: true
+      headerShown: true,
+      headerStyle:{
+        backgroundColor: "#800080",
+      },
+      headerTintColor: "white"
     }}>
       <Drawer.Screen name="Welcome" component={Welcome}  options={{
         drawerIcon: ({color}) => (

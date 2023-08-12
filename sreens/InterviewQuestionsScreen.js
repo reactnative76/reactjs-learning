@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, Text, View, SafeAreaView, TextInput, FlatList, StatusBar } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView, TextInput, FlatList, StatusBar, ScrollView } from 'react-native';
 import {questionsList} from '../utils/interviewQuestions'
 import { ActivityIndicator, MD2Colors, List  } from 'react-native-paper';
 
@@ -9,6 +9,7 @@ const InterviewQuestionsScreen = ()=>{
   const [isLoading, setIsLoading] = React.useState(false)
   const [data, setData] = React.useState([])
   const [expanded, setExpanded] = React.useState(false);
+  const [selectedIndex, setSelectedIndex] = React.useState(null)
  
 
   React.useEffect(()=>{
@@ -39,45 +40,47 @@ const InterviewQuestionsScreen = ()=>{
   }
 
     return(
-      <React.Fragment>
   
+  <View style={{
+    backgroundColor: "white",
+    flex:1
+  }}>
+
     <View style={{
       flex: 1, marginTop: 20, marginHorizontal: 20,  marginBottom: 0
     }}>
-    <TextInput placeholder='Search'  autoCapitalize='none' autoCorrect={false} style={{
+    <TextInput  placeholder='Search'  autoCapitalize='none' autoCorrect={false} style={{
       paddingHorizontal: 20, paddingVertical: 10, borderColor: "#ccc", borderWidth: 1, borderRadius: 8,
     }} onChange={(value)=>{
       setSearchQuery(value)
     }} />
     
     </View>
-    <SafeAreaView style={
-      {
-        flex: 1,
-        marginTop: 10,
-      }
-    }>
-    <FlatList data={data} keyExtractor={(item)=> item?.index} renderItem={({item})=>{
+ <View style={{
+  flex:10,
+  paddingHorizontal: 10
+ 
+ }}>
+    <FlatList  data={data} keyExtractor={(item)=> item?.index} renderItem={({item})=>{
       return (
         <View key={item.key} style={{
           flex: 1,
-          marginVertical:8
+          marginVertical:8,
         }}>
         <List.Section key={item.key} style={{
-          flex: 1,
-        
+          backgroundColor: "white",
+          
         }}>
-        <List.Accordion
-        style={{
-          flexWrap: "wrap",
-          flex: 1,
-          alignItems: "flex-start"
+        <List.Accordion style={{
+          backgroundColor: "white"
         }}
+     
           key={item.key}
           title={item?.question}
           left={props => <List.Icon {...props} icon="folder" />}
-          expanded={expanded}
+          expanded={selectedIndex === item.key ?  expanded : false}
           onPress={()=>{
+            setSelectedIndex(item.key)
             handlePress()
           }}>
           <List.Item titleNumberOfLines={40} title={item.answer}   />
@@ -86,9 +89,10 @@ const InterviewQuestionsScreen = ()=>{
         </View>
       )
     }} />
-    </SafeAreaView>
- 
-        </React.Fragment>
+    </View>
+   
+ </View>
+     
     )
 
 }

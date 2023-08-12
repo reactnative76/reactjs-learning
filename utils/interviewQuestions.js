@@ -23,5 +23,30 @@ export const questionsList = [
         key:4,
         question: "What is NPM ?",
         answer: `Npm, or node package  is a  command line utility that interacts with a repository of open source projects, Become the package manager for JavaScript. Using npm we can install libraries, packages, and applications, along with their dependencies.`
+    },
+    {
+        key:5,
+        question: "What is NPM ?",
+        answer: `Npm, or node package  is a  command line utility that interacts with a repository of open source projects, Become the package manager for JavaScript. Using npm we can install libraries, packages, and applications, along with their dependencies.`
+    },
+    {
+        key:6,
+        question: "What is NPM ?",
+        answer: `Npm, or node package  is a  command line utility that interacts with a repository of open source projects, Become the package manager for JavaScript. Using npm we can install libraries, packages, and applications, along with their dependencies.`
+    },
+    {
+        key:7,
+        question: "What is NPM ?",
+        answer: `Npm, or node package  is a  command line utility that interacts with a repository of open source projects, Become the package manager for JavaScript. Using npm we can install libraries, packages, and applications, along with their dependencies.`
+    },
+    {
+        key:8,
+        question: "What is NPM ?",
+        answer: `Npm, or node package  is a  command line utility that interacts with a repository of open source projects, Become the package manager for JavaScript. Using npm we can install libraries, packages, and applications, along with their dependencies.`
+    },
+    {
+        key:9,
+        question: "What is NPM ?",
+        answer: `Npm, or node package  is a  command line utility that interacts with a repository of open source projects, Become the package manager for JavaScript. Using npm we can install libraries, packages, and applications, along with their dependencies.`
     }
 ]
