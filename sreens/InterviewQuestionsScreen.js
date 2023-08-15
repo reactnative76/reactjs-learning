@@ -57,10 +57,10 @@ const InterviewQuestionsScreen = ()=>{
   }}>
 
     <View style={{
-      flex: 1, marginTop: 20, marginHorizontal: 20,  marginBottom: 0
+      flex: 1, marginTop: 20, marginHorizontal: 20,  marginBottom: 0, 
     }}>
     <TextInput  placeholder='Search'  autoCapitalize='none' autoCorrect={false} style={{
-      paddingHorizontal: 20, paddingVertical: 10, borderColor: "#ccc", borderWidth: 1, borderRadius: 8,
+      paddingHorizontal: 20, paddingVertical: 10, borderColor: "#ccc", borderWidth: 1, borderRadius: 8
     }} onChangeText={(value)=>{
       setSearchQuery(value)
       const formattedQuery = value?.toLowerCase()
@@ -98,7 +98,7 @@ const InterviewQuestionsScreen = ()=>{
             setSelectedIndex(item.key)
             handlePress()
           }}>
-          <List.Item titleNumberOfLines={40} title={item.answer}   />
+          <List.Item  key={item.key} titleNumberOfLines={40} title={item.answer}   />
         </List.Accordion>
       </List.Section>
         </View>

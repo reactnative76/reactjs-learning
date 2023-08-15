@@ -13,6 +13,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 import FeatherIcons from 'react-native-vector-icons/Feather'
 import EntypoIcons from 'react-native-vector-icons/Entypo'
 import OcticonsIcons from 'react-native-vector-icons/Octicons'
+import AntDesignIcons from 'react-native-vector-icons/AntDesign'
 import { PaperProvider } from 'react-native-paper';
 
 
@@ -33,7 +34,19 @@ export default function App() {
       headerStyle:{
         backgroundColor: "#800080",
       },
-      headerTintColor: "white"
+      headerTintColor: "white",
+      headerRight:() => (
+        <View style={{
+          marginRight:12
+        }}>
+        <AntDesignIcons
+          name="star"
+          size={22}
+          color={"white"}
+        />
+        </View>
+        
+      ),
     }}>
       <Drawer.Screen name="Welcome" component={Welcome}  options={{
         drawerIcon: ({color}) => (
