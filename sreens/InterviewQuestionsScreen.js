@@ -2,6 +2,7 @@ import React from 'react'
 import { StyleSheet, Text, View, SafeAreaView, TextInput, FlatList, StatusBar, ScrollView } from 'react-native';
 import {questionsList} from '../utils/interviewQuestions'
 import { ActivityIndicator, MD2Colors, List  } from 'react-native-paper';
+import filter from 'lodash.filter'
 
 const InterviewQuestionsScreen = ()=>{
 
@@ -10,6 +11,7 @@ const InterviewQuestionsScreen = ()=>{
   const [data, setData] = React.useState([])
   const [expanded, setExpanded] = React.useState(false);
   const [selectedIndex, setSelectedIndex] = React.useState(null)
+  const [fullData, setFullData] = React.useState([])
  
 
   React.useEffect(()=>{
@@ -24,9 +26,17 @@ const InterviewQuestionsScreen = ()=>{
 
   const fetchData = ()=>{
     setData(questionsList)
+    setFullData(questionsList)
     setIsLoading(false)
   }
   const handlePress = () => setExpanded(!expanded);
+
+  const contains = (completeQuestion, query)=>{
+    if(completeQuestion?.question?.toLowerCase().includes(query)){
+      return true
+    } 
+    else return false
+  }
 
   if(isLoading){
     return (
@@ -51,8 +61,13 @@ const InterviewQuestionsScreen = ()=>{
     }}>
     <TextInput  placeholder='Search'  autoCapitalize='none' autoCorrect={false} style={{
       paddingHorizontal: 20, paddingVertical: 10, borderColor: "#ccc", borderWidth: 1, borderRadius: 8,
-    }} onChange={(value)=>{
+    }} onChangeText={(value)=>{
       setSearchQuery(value)
+      const formattedQuery = value?.toLowerCase()
+      const filteredData = filter(fullData, (completeQuestion)=>{
+        return contains(completeQuestion, formattedQuery)
+      })
+      setData(filteredData)
     }} />
     
     </View>
