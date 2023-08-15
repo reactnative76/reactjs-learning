@@ -86,7 +86,7 @@ const InterviewQuestionsScreen = ()=>{
           backgroundColor: "white",
           
         }}>
-        <List.Accordion style={{
+        <List.Accordion  style={{
           backgroundColor: "white"
         }}
      
