@@ -7,6 +7,7 @@ import Welcome from './sreens/WelcomeScreen';
 import AboutScreen from './sreens/AboutScreen';
 import BookMarksScreen from './sreens/BookMarksScreen';
 import ContactScreen from './sreens/ContactScreen';
+import TopicsScreen from './sreens/TopicsScreen';
 import InterviewQuestionsScreen from './sreens/InterviewQuestionsScreen';
 import CustomDrawer from './components/CustomDrawer'
 import Ionicons from 'react-native-vector-icons/Ionicons'
@@ -15,6 +16,7 @@ import EntypoIcons from 'react-native-vector-icons/Entypo'
 import OcticonsIcons from 'react-native-vector-icons/Octicons'
 import AntDesignIcons from 'react-native-vector-icons/AntDesign'
 import { PaperProvider } from 'react-native-paper';
+import * as SplashScreen from 'expo-splash-screen'
 
 
 
@@ -22,6 +24,10 @@ import { PaperProvider } from 'react-native-paper';
 const Drawer = createDrawerNavigator()
 
 export default function App() {
+
+  SplashScreen.preventAutoHideAsync()
+  setTimeout(SplashScreen.hideAsync, 2000)
+
   return (
     <PaperProvider>
     <StatusBar
@@ -49,6 +55,12 @@ export default function App() {
       ),
     }}>
       <Drawer.Screen name="Welcome" component={Welcome}  options={{
+        drawerIcon: ({color}) => (
+          <Ionicons name="home-outline" size={22} />
+        ),
+      }} />
+
+      <Drawer.Screen name="Topics" component={TopicsScreen}  options={{
         drawerIcon: ({color}) => (
           <Ionicons name="home-outline" size={22} />
         ),
