@@ -1,7 +1,21 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useFocusEffect } from '@react-navigation/native';
 
-const AboutScreen = ()=>{
+
+const AboutScreen = ({navigation})=>{
+
+  useFocusEffect(()=>{
+
+    console.log('I am removing in about screen')
+    const destroyItem = async()=>{
+      await AsyncStorage.removeItem('BookmarkedItem')
+
+    }
+
+    destroyItem()
+  })
 
     return(
         <View style={styles.container}>

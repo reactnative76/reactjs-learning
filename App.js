@@ -17,6 +17,7 @@ import OcticonsIcons from 'react-native-vector-icons/Octicons'
 import AntDesignIcons from 'react-native-vector-icons/AntDesign'
 import { PaperProvider } from 'react-native-paper';
 import * as SplashScreen from 'expo-splash-screen'
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 
@@ -27,6 +28,8 @@ export default function App() {
 
   SplashScreen.preventAutoHideAsync()
   setTimeout(SplashScreen.hideAsync, 2000)
+
+ 
 
   return (
     <PaperProvider>
@@ -41,18 +44,7 @@ export default function App() {
         backgroundColor: "#800080",
       },
       headerTintColor: "white",
-      headerRight:() => (
-        <View style={{
-          marginRight:12
-        }}>
-        <AntDesignIcons
-          name="star"
-          size={22}
-          color={"white"}
-        />
-        </View>
-        
-      ),
+     
     }}>
       <Drawer.Screen name="Welcome" component={Welcome}  options={{
         drawerIcon: ({color}) => (
@@ -64,6 +56,7 @@ export default function App() {
         drawerIcon: ({color}) => (
           <Ionicons name="home-outline" size={22} />
         ),
+        
       }} />
      
       
