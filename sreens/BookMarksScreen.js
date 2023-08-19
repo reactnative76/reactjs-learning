@@ -1,42 +1,40 @@
-import React from 'react'
+import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useFocusEffect } from '@react-navigation/native';
 
+const BookMarksScreen = () => {
+    const [bookmarkedItems, setBookmarkedItems] = React.useState([]);
 
-const BookMarksScreen = ()=>{
+    useFocusEffect(() => {
+        const viewItems = async () => {
+            const existingItems = await AsyncStorage.getItem('BookmarkedItem');
+            const tempArr = [...JSON.parse(existingItems)];
+            setBookmarkedItems([...tempArr]);
+        };
 
+        viewItems();
+    });
 
-  useFocusEffect(()=>{
-
-    const viewItems  =async()=>{
-      const existingItems = await AsyncStorage.getItem('BookmarkedItem')
-      console.log('Items bookmarked are:-', JSON.parse(existingItems))
-    }
-
-  
-
-
-    viewItems()
-
-  })
-
-
-    return(
+    return (
         <View style={styles.container}>
             <Text>Bookmarks screen</Text>
+            {bookmarkedItems && (
+                <View>
+                    {bookmarkedItems?.map((item, index) => {
+                        return <Text key={index}>{item}</Text>;
+                    })}
+                </View>
+            )}
         </View>
-    )
-
-}
+    );
+};
 
 const styles = StyleSheet.create({
     container: {
-      flex: 1,
-      backgroundColor: '#fff',
-      alignItems: 'center',
-      justifyContent: 'center',
+        flex: 1,
+        backgroundColor: '#fff',
     },
-  });
+});
 
-export default BookMarksScreen
+export default BookMarksScreen;
