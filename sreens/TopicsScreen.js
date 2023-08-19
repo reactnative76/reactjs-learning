@@ -9,19 +9,15 @@ const TopicsScreen = ({navigation})=>{
     const [topicsLength] = React.useState(4)
 
     React.useEffect(()=>{
+        navigation.setOptions({
+            title:  Topics[pageIncrement]?.question,
+          })
         setSelectedTopic(pageIncrement)
     }, [pageIncrement])
 
     return(
         <React.Fragment>
-        <View style={{
-            marginTop: 40,
-            paddingLeft: 20
-        }}>
-            <Text style={{
-                fontWeight: "bold", fontSize: 18
-            }}>ReactJS Topics</Text>
-        </View>
+       
         <View>
                <Text>{ Topics[selectedTopic]?.question}</Text>
         </View>
@@ -37,9 +33,7 @@ const TopicsScreen = ({navigation})=>{
         <Button disabled={selectedTopic === 0}   mode="outlined" onPress={() => {
            
             setPageIncrement(pageIncrement - 1)
-            navigation.setOptions({
-                title:  Topics[selectedTopic]?.question,
-              })
+          
         }}>
             Previous
         </Button>
@@ -50,9 +44,7 @@ const TopicsScreen = ({navigation})=>{
         <Button disabled={selectedTopic === topicsLength -1}  mode="outlined" onPress={() => {
            
             setPageIncrement(pageIncrement + 1)
-            navigation.setOptions({
-                title:  Topics[selectedTopic]?.question,
-              })
+           
         }}>
             Next
         </Button>
