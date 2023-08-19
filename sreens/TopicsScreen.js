@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import {Topics} from '../utils/topics'
 import { Button } from 'react-native-paper';
 
-const TopicsScreen = ()=>{
+const TopicsScreen = ({navigation})=>{
     const [selectedTopic, setSelectedTopic] = React.useState(null)
     const [pageIncrement, setPageIncrement] = React.useState(0)
     const [topicsLength] = React.useState(4)
@@ -37,6 +37,9 @@ const TopicsScreen = ()=>{
         <Button disabled={selectedTopic === 0}   mode="outlined" onPress={() => {
            
             setPageIncrement(pageIncrement - 1)
+            navigation.setOptions({
+                title:  Topics[selectedTopic]?.question,
+              })
         }}>
             Previous
         </Button>
@@ -47,6 +50,9 @@ const TopicsScreen = ()=>{
         <Button disabled={selectedTopic === topicsLength -1}  mode="outlined" onPress={() => {
            
             setPageIncrement(pageIncrement + 1)
+            navigation.setOptions({
+                title:  Topics[selectedTopic]?.question,
+              })
         }}>
             Next
         </Button>
