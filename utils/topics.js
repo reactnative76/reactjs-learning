@@ -6,7 +6,7 @@ export const Topics = [
     },
     {
         key: 1,
-        question: 'What is Angular ?',
+        question: 'What is Virtual DOM',
         answer: "Angular is an open source JavaScript framework to build web applications in HTML and JavaScript.It is a great new framework that will provide us a great deal of flexibility and power when building our apps.It's a one framework for web as well as for mobile.",
     },
     {

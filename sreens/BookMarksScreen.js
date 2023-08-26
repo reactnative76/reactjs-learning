@@ -18,7 +18,6 @@ const BookMarksScreen = () => {
 
     return (
         <View style={styles.container}>
-            <Text>Bookmarks screen</Text>
             {bookmarkedItems && (
                 <View>
                     {bookmarkedItems?.map((item, index) => {

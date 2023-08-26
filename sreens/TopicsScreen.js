@@ -4,6 +4,10 @@ import { Topics } from '../utils/topics';
 import { Button } from 'react-native-paper';
 import AntDesignIcons from 'react-native-vector-icons/AntDesign';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import WhatIsReact from '../components/Topics/WhatIsReact';
+import Virtualdom from '../components/Topics/Virtualdom';
+import ReactAdvantages from '../components/Topics/ReactAdvantages';
+import Spa from '../components/Topics/Spa';
 
 const TopicsScreen = ({ navigation }) => {
     const [selectedTopic, setSelectedTopic] = React.useState(null);
@@ -12,9 +16,6 @@ const TopicsScreen = ({ navigation }) => {
     const [isBookmarked, setIsBookmarked] = React.useState(false);
 
     React.useEffect(() => {
-        navigation.setOptions({
-            title: Topics[pageIncrement]?.question,
-        });
         setSelectedTopic(pageIncrement);
     }, [pageIncrement]);
 
@@ -111,10 +112,22 @@ const TopicsScreen = ({ navigation }) => {
     }, [navigation, pageIncrement, isBookmarked]);
 
     return (
-        <React.Fragment>
-            <View>
-                <Text>{Topics[selectedTopic]?.question}</Text>
+        <View
+            style={{
+                flex: 1,
+            }}
+        >
+            <View
+                style={{
+                    flex: 1,
+                }}
+            >
+                {selectedTopic === 0 && <WhatIsReact />}
+                {selectedTopic === 1 && <Virtualdom />}
+                {selectedTopic === 2 && <ReactAdvantages />}
+                {selectedTopic === 3 && <Spa />}
             </View>
+
             <View
                 style={{
                     justifyContent: 'space-between',
@@ -153,7 +166,7 @@ const TopicsScreen = ({ navigation }) => {
                     </Button>
                 </View>
             </View>
-        </React.Fragment>
+        </View>
     );
 };
 
