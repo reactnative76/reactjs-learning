@@ -30,6 +30,7 @@ const Subheading = ({ content }) => {
                                     left={(props) => (
                                         <List.Icon {...props} icon="folder" />
                                     )}
+                                    titleNumberOfLines={10}
                                 />
                             );
                         })}

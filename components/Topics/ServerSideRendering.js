@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import Heading from '../Heading';
 import Subheading from '../Subheading';
 
-const Spa = () => {
+const ServerSideRendering = () => {
     return (
         <View
             style={{
@@ -11,7 +11,7 @@ const Spa = () => {
             }}
         >
             <ScrollView>
-                <Heading content={'What is Single Page Application'} />
+                <Heading content={'What is Server Side Rendering'} />
                 <Subheading
                     content={[
                         'When a user first visits a SPA, the web server typically sends a minimal HTML, CSS, and JavaScript bundle. This initial page load is often referred to as the "shell" of the application.',
@@ -27,4 +27,4 @@ const Spa = () => {
     );
 };
 
-export default Spa;
+export default ServerSideRendering;

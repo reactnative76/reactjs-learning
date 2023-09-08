@@ -8,11 +8,15 @@ import WhatIsReact from '../components/Topics/WhatIsReact';
 import Virtualdom from '../components/Topics/Virtualdom';
 import ReactAdvantages from '../components/Topics/ReactAdvantages';
 import Spa from '../components/Topics/Spa';
+import ServerSideRendering from '../components/Topics/ServerSideRendering';
+import JSX from '../components/Topics/JSX';
+import Memoization from '../components/Topics/Memoization';
+import ReactJSRouting from '../components/Topics/ReactJSRouting';
 
 const TopicsScreen = ({ navigation }) => {
     const [selectedTopic, setSelectedTopic] = React.useState(null);
     const [pageIncrement, setPageIncrement] = React.useState(0);
-    const [topicsLength] = React.useState(4);
+    const [topicsLength] = React.useState(8);
     const [isBookmarked, setIsBookmarked] = React.useState(false);
 
     React.useEffect(() => {
@@ -126,6 +130,10 @@ const TopicsScreen = ({ navigation }) => {
                 {selectedTopic === 1 && <Virtualdom />}
                 {selectedTopic === 2 && <ReactAdvantages />}
                 {selectedTopic === 3 && <Spa />}
+                {selectedTopic === 4 && <ServerSideRendering />}
+                {selectedTopic === 5 && <JSX />}
+                {selectedTopic === 6 && <Memoization />}
+                {selectedTopic === 7 && <ReactJSRouting />}
             </View>
 
             <View
@@ -133,13 +141,10 @@ const TopicsScreen = ({ navigation }) => {
                     justifyContent: 'space-between',
                     flexDirection: 'row',
                     paddingHorizontal: 20,
+                    marginBottom: 20,
                 }}
             >
-                <View
-                    style={{
-                        marginTop: 50,
-                    }}
-                >
+                <View>
                     <Button
                         disabled={selectedTopic === 0}
                         mode="outlined"
@@ -150,11 +155,7 @@ const TopicsScreen = ({ navigation }) => {
                         Previous
                     </Button>
                 </View>
-                <View
-                    style={{
-                        marginTop: 50,
-                    }}
-                >
+                <View>
                     <Button
                         disabled={selectedTopic === topicsLength - 1}
                         mode="outlined"
