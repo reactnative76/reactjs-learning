@@ -44,6 +44,56 @@ const Routing = () => {
                         }}
                     />
                 </View>
+                <Heading content={'Set up Routing'} />
+                <View
+                    style={{
+                        width: '100%',
+                        height: 100,
+                        paddingHorizontal: 8,
+                    }}
+                >
+                    <Image
+                        source={require('../../assets/import.jpg')}
+                        style={{
+                            resizeMode: 'contain',
+                            width: '100%',
+                            height: '100%',
+                        }}
+                    />
+                </View>
+                <View
+                    style={{
+                        width: '100%',
+                        height: 100,
+                        paddingHorizontal: 0,
+                    }}
+                >
+                    <Image
+                        source={require('../../assets/routing-wrapper.jpg')}
+                        style={{
+                            resizeMode: 'contain',
+                            width: '100%',
+                            height: '100%',
+                        }}
+                    />
+                </View>
+                <View
+                    style={{
+                        width: '100%',
+                        height: 100,
+                        paddingHorizontal: 0,
+                        mb: 8,
+                    }}
+                >
+                    <Image
+                        source={require('../../assets/define-router.jpg')}
+                        style={{
+                            resizeMode: 'contain',
+                            width: '100%',
+                            height: '100%',
+                        }}
+                    />
+                </View>
             </ScrollView>
         </View>
     );
